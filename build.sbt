@@ -8,10 +8,6 @@ ThisBuild / maintainer := "michel@rouly.net"
 ThisBuild / scalaVersion := "2.13.1"
 ThisBuild / scalacOptions ++= ScalacOptions.recommended
 
-// Versioning.
-ThisBuild / version := "0.0-SNAPSHOT"
-ThisBuild / isSnapshot := true
-
 lazy val commonSettings = Seq(
   name := "scapass-" + name.value,
 )
