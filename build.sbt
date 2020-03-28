@@ -7,16 +7,17 @@ ThisBuild / licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 ThisBuild / maintainer := "michel@rouly.net"
 ThisBuild / scalaVersion := "2.13.1"
 ThisBuild / scalacOptions ++= ScalacOptions.recommended
+ThisBuild / resolvers += Release.bintrayResolver
+ThisBuild / publishTo := Some(Release.bintrayResolver)
+
+// Disable publishing for root project.
+publishArtifact := false
+publishLocal := {}
+publish := {}
 
 lazy val commonSettings = Seq(
   name := "scapass-" + name.value,
-)
-
-lazy val noPublish = Seq(
-  publishArtifact := false,
-  publishLocal := {},
-  publish := {},
-)
+) ++ Release.bintraySettings
 
 // CLI application.
 lazy val cli = project
